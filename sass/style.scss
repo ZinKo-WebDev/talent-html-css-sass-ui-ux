@@ -1,9 +1,10 @@
-$color-primary: rgb(236, 45, 45);
-$color-secondary: rgb(255, 45, 192);
-$color-accent: rgb(141, 35, 100);
-$color-white: rgb(255, 255, 255);
-$color-black: rgb(0, 0, 0);
+$colorPrimary: rgb(236, 45, 45);
+$colorSecondary: rgb(255, 45, 192);
+$colorAccent: rgb(141, 35, 100);
+$colorWhite: rgb(255, 255, 255);
+$colorBlack: rgb(0, 0, 0);
 
+$fontPoppin: "Poppins", sans-serif;
 * {
   margin: 0;
   padding: 0;
@@ -21,24 +22,40 @@ $color-black: rgb(0, 0, 0);
   z-index: 5;
   position: sticky;
   top: 0;
-  background-color: $color-secondary;
+  background-color: $colorSecondary;
   font-size: 20px;
 
   .nav-ListGroup {
     width: 100%;
     display: flex;
     justify-content: space-around;
+    overflow: hidden;
 
     li {
-      padding: 20px 0;
       list-style: none;
+
       text-align: center;
       width: 33.33%;
-      border: 1px solid $color-white;
+      border: 1px solid $colorWhite;
+      position: relative;
+      padding: 20px 0;
+      position: relative;
+
+      &:hover {
+        &::after {
+          content: "";
+          height: 5px;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background-color: #000000;
+        }
+      }
 
       a {
         text-decoration: none;
-        color: $color-white;
+        color: $colorWhite;
       }
     }
   }
@@ -48,13 +65,13 @@ $color-black: rgb(0, 0, 0);
   margin-bottom: 10px;
 
   .logo-container {
-    background-color: $color-black;
+    background-color: $colorBlack;
     text-align: center;
     padding: 20px 0;
 
     a {
       text-decoration: none;
-      color: $color-white;
+      color: $colorWhite;
       font-size: 30px;
       font-weight: bold;
     }
@@ -75,7 +92,7 @@ $color-black: rgb(0, 0, 0);
       margin: 10px;
       width: calc(33.33% - 30px);
       text-align: center;
-      
+
       .image-wrapper {
         display: flex;
         justify-content: center;
@@ -94,20 +111,20 @@ $color-black: rgb(0, 0, 0);
 
       .card__btn {
         margin-top: 5px;
-        width: 300px;
+        width: 70%;
         height: 50px;
         transform: skew(-30deg);
-        background: $color-white;
-        color: $color-black;
-        border: 0.5px solid $color-white;
-        box-shadow: 3px 3px 6px $color-primary;
+        background: $colorWhite;
+        color: $colorBlack;
+        border: 0.5px solid $colorWhite;
+        box-shadow: 3px 3px 6px $colorPrimary;
         transition: all 0.5s ease-in-out;
 
         &:hover {
-          background: $color-primary;
-          color: $color-white;
-          border: 0.5px solid $color-white;
-          box-shadow: 2px 2px 4px $color-primary;
+          background: $colorPrimary;
+          color: $colorWhite;
+          border: 0.5px solid $colorWhite;
+          box-shadow: 2px 2px 4px $colorPrimary;
         }
       }
     }
@@ -122,9 +139,9 @@ $color-black: rgb(0, 0, 0);
 
     dt {
       padding: 20px 10px;
-      background-color: $color-secondary;
+      background-color: $colorSecondary;
       position: relative;
-      color: white;
+      color: $colorWhite;
       font-weight: bold;
       font-size: 20px;
 
@@ -134,7 +151,7 @@ $color-black: rgb(0, 0, 0);
         content: "\002b";
         right: 30px;
         font-size: 30px;
-        color: $color-white;
+        color: $colorWhite;
         font-weight: bold;
         bottom: 13px;
       }
@@ -147,11 +164,30 @@ $color-black: rgb(0, 0, 0);
 }
 
 .footer-section {
+  width: 100%;
   padding: 20px 0;
-  background-color: $color-black;
+  background-color: $colorBlack;
 
-  p {
+  address {
     text-align: center;
-    color: $color-white;
+    color: $colorWhite;
+  }
+}
+@media screen and (max-width: 800px) {
+  .container-main {
+    .cards {
+      .card {
+        width: calc(50% - 30px);
+      }
+    }
+  }
+}
+@media screen and (max-width: 400px) {
+  .container-main {
+    .cards {
+      .card {
+        width: calc(100%);
+      }
+    }
   }
 }
